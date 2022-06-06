@@ -30,7 +30,7 @@ int kadanesAlgo(vector<int>& a,vector<int>& subarray){
     return maxSum;
 }
 
-int maxSubArraySum(int a[], int size)
+int maxSubArraySum(vector<int>& a, int size)
 {
    int max_so_far = a[0];
    int curr_max = a[0];
@@ -63,6 +63,10 @@ int main(){
         cout << a[i] << " ";
     
     cout<<endl;
+
+
+
+    cout<<"Max Sum: "<<maxSubArraySum(a,n)<<endl;
 
 
     return 0;
