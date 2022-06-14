@@ -16,6 +16,29 @@ void merge(vector<int>& a1,vector<int>& a2,int m,int n){
 }
 
 
+void gapMethod(vector<int> &a1,vector<int> &a2,int m,int n){
+    int gap=ceil((float)(m+n)/2);
+    while(gap>0){
+        int i=0;
+        int j=gap;
+        while(j<(m+n)){
+            if(j<m && a1[i]>a1[j]){
+                swap(a1[i],a1[j]);
+            }else if(j>=m && i<m &&a1[i]>a2[j-m]){
+                swap(a1[i],a2[j-m]);
+            }else if(j>=m && i>=m && a2[i-m]>a2[j-m]){
+                swap(a2[i-m],a2[j-m]);
+            }
+            i++,j++;
+        }
+        if(gap==1)
+            gap=0;
+        else
+            gap=ceil((float)gap/2);
+    }
+}
+
+
 int main(){
 
     cout<<"Array1 size: ";
@@ -42,7 +65,7 @@ int main(){
     a1.insert(a1.begin(),a3.begin(),a3.begin()+m);
     a2.insert(a2.begin(),a3.begin()+m,a3.end());
 
-    cout<<"(1)): \n";
+    cout<<"Ans(1): \n"; // Time complexity: O(n*log(n))+O(n)+O(n)
     for(auto it: a1)
         cout<<it<<" ";
     cout<<endl;
@@ -50,13 +73,24 @@ int main(){
         cout<<it<<" ";
     cout<<endl;
 
-    cout<<"Ans(2):\n";
+    cout<<"Ans(2):\n"; // Time complexity: O(m*n)
+    merge(a1,a2,m,n);
     for(auto it: a1)
         cout<<it<<" ";
     cout<<endl;
     for(auto it: a2)
         cout<<it<<" ";
     cout<<endl;
+
+    cout<<"Ans(3):\n"; // Time complexity: O(logn)
+    gapMethod(a1,a2,m,n);
+    for(auto it: a1)
+        cout<<it<<" ";
+    cout<<endl;
+    for(auto it: a2)
+        cout<<it<<" ";
+    cout<<endl;
+
 
     return 0;
 }
