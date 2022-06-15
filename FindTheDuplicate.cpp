@@ -12,10 +12,23 @@ int findDuplicate1(vector<int>& a){
     return 0;
 }
 
-// int findDuplicate2(vector<int>& a){
-//     int n=a.size();
-    
-// }
+ int findDuplicate2(vector<int>& a){
+     int n=a.size();
+     int slow=a[0];
+     int fast=a[0];
+     do{
+        slow=a[slow];
+        fast=a[a[fast]];
+
+     }while (slow!=fast);
+     fast=a[0];
+     while (slow!=fast){
+        slow=a[slow];
+        fast=a[fast];
+     }
+     return slow;
+       
+ }
 
 int main(){
 
@@ -36,6 +49,7 @@ int main(){
         }
     }
     cout<<"Ans(2): "<<findDuplicate1(a)<<endl;
+    cout<<"Ans(3): "<<findDuplicate2(a)<<endl;
 
     return 0;
 }
