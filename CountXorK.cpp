@@ -23,10 +23,16 @@ int countXor(vector<int>& a,int n,int k){
     int xor1=0;
     for(int i=0;i<n;i++){
         xor1=xor1^a[i];
-        if(xor1==k)
+        if(xor1==k){
             count++;
         
+        }
+        if(mp.find(xor1^k)!=mp.end()){
+            count=count+mp[xor1^k];
+        }
+        mp[xor1]++;
     }
+    return count;
 }
 
 
@@ -41,6 +47,7 @@ int main(){
     }
     cout<<"Value of K:";int k;cin>>k;
     cout<<"Number of subarrays with given XOR K: "<<xorK(a,n,k)<<endl;
+    cout<<"Number of subarrays with given XOR K: "<<countXor(a,n,k)<<endl;
 
 
 
