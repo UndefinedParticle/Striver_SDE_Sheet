@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//TC: O(n*n)
+//SC: O(n)
 int longestSubstring(string s){
     int n=s.size();
     int length=1;
@@ -38,6 +39,8 @@ int longestLength(string s){
     return length;
 }
 
+//TC: O(n)
+//SC: O(n)
 int lengthOfSubstring(string s){
     int n=s.size();
     unordered_map<char,int> mp;

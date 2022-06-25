@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//TC: O(n*n)
+//SC: O(1)
 int xorK(vector<int>& a,int n,int k){
     int count=0;
     for(int i=0;i<n;i++){
@@ -17,6 +19,8 @@ int xorK(vector<int>& a,int n,int k){
     return count;
 }
 
+//TC: O(n)
+//SC: O(n)
 int countXor(vector<int>& a,int n,int k){
     unordered_map<int,int> mp;
     int count=0;
