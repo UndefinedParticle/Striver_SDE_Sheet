@@ -1,1 +1,3 @@
-#include<bits/stdc++.h>
+reverseList(head);
+    // cout<<"After reversing:\n";
+    // show(head);
