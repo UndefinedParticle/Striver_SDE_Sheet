@@ -32,7 +32,7 @@ void show(node* head){
 void reverseList(node* &head){
     node* prev=NULL;
     node* curr=head;
-    node* next;
+    node* next; 
     
     while(curr){
         next=curr->next;
