@@ -23,17 +23,20 @@ int method3(vector<int>& arr,int size){
     // Space Complexity: O(1)
 int majorityElement(vector<int>& a) {
     int n=a.size();
-    int count = 0;
+    int vote = 0;
     int candidate = 0;
 
     for (int num : a) {
-        if (count == 0) {
+        if (vote == 0) {
             candidate = num;
+            vote=1;
         }
-        if(num==candidate) count += 1; 
-        else count -= 1; 
+        if(num==candidate) 
+            vote += 1; 
+        else 
+            vote -= 1; 
     }
-    count=0;
+    int count=0;
     for (int i = 0; i < n; i++) {
         if (a[i] == candidate)
             count++;
