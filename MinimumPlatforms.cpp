@@ -1,47 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
-struct platform{
-    int a;
-    int d;
-    int num;
-};
 
-//comparator
-bool static comp(platform m1,platform m2){
-    if(m1.d < m2.d)
-        return true;
-    else if(m1.d > m2.d)
-        return false;
-    else if(m1.num < m2.num)
-        return true;
-    return false;
-}
-
-// Time Complexity: O(n log n)
-// Space Complexity: O(n)
-int minPlatforms(int s[],int e[],int n){
-    struct platform train[n];
-    for(int i=0;i<n;i++){
-        train[i].a=s[i];
-        train[i].d=e[i];
-        train[i].num=i+1;
+// Time Complexity: O(nlogn) Sorting takes O(nlogn) and 
+//                 traversal of arrays takes O(n) so overall time complexity is O(nlogn).
+// Space complexity: O(1)  (No extra space used).
+int minPlatforms(int a[],int d[],int n){
+   sort(a,a+n);
+   sort(d,d+n);
+   int ans=1,count=1;
+   int i=1,j=0;
+   while(i<n && j<n){
+    if(a[i]<=d[j]){
+        count++;
+        i++;
+    }else{
+        count--;
+        j++;
     }
-    sort(train,train+n,comp);
-    vector<int> ans;
-    int time=train[0].d;
-    ans.push_back(train[0].num);
+    ans=max(ans,count);
+   }
 
-    for(int i=1;i<n;i++){
-        if(train[i].a < time){
-            time=train[i].d;
-            ans.push_back(train[i].num);
-        }
-    }
-    
-
-
-    return ans.size();
-
+   return ans;
 }
 
 
