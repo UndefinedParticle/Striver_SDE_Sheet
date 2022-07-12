@@ -1,3 +1,2 @@
-reverseList(head);
-    // cout<<"After reversing:\n";
-    // show(head);
+
+    set < vector < int >> ans;
