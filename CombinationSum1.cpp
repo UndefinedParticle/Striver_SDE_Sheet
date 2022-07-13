@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void combinationSum(int ind,vector<int> &a,vector<int> ds,int target,int n){
+void combinationSum1(int ind,vector<int> &a,vector<int> ds,int target,int n){
     if(ind==n){
         if(target==0){
             for(auto it: ds)
@@ -14,10 +14,10 @@ void combinationSum(int ind,vector<int> &a,vector<int> ds,int target,int n){
 
     if(a[ind]<=target){
         ds.push_back(a[ind]);
-        combinationSum(ind,a,ds,target-a[ind],n);
+        combinationSum1(ind,a,ds,target-a[ind],n);
         ds.pop_back();
     }
-    combinationSum(ind+1,a,ds,target,n);
+    combinationSum1(ind+1,a,ds,target,n);
 
 
 
@@ -38,7 +38,7 @@ int main(){
     cout<<"Target: ";int t;cin>>t;
     cout<<"Ans:\n";
     vector<int> ds;
-    combinationSum(0,a,ds,t,n);
+    combinationSum1(0,a,ds,t,n);
 
 
 
