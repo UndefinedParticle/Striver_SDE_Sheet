@@ -1,2 +1,2 @@
-
-    set < vector < int >> ans;
+cout<<"I "<<i<<endl;
+            // cout<<"J "<<j<<endl;
