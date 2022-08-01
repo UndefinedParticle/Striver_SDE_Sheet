@@ -1,6 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+// Time Complexity : O( N log N ) + O (N) + O (N)   
+// Reason : O(N) – Merge operation , O(N) – counting operation 
+// ( at each iteration of i , j doesn’t start from 0 . 
+// Both of them move linearly ) 
+
+// Space Complexity : O(N) 
+// Reason : O(N) – Temporary vector
 int Merge(vector<int>& a,int low,int mid,int high){
     int totalCount=0;
     int j=mid+1;

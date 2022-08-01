@@ -1,1 +1,1 @@
-
+minNumber(book,b)

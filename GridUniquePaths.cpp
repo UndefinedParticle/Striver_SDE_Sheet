@@ -19,7 +19,7 @@ int countPathByDp(int i,int j,int m,int n,vector<vector<int>>& dp){
     if(dp[i][j]!=-1) 
         return dp[i][j];
     else
-        return countPathByDp(i+1,j,m,n,dp)+countPathByDp(i,j+1,m,n,dp);
+        return dp[i][j]=countPathByDp(i+1,j,m,n,dp)+countPathByDp(i,j+1,m,n,dp);
     
 }
 
