@@ -18,6 +18,27 @@ int longestSequence(vector<int>& a,int n){
     return maxi;
 }
 
+int LongestLength(vector<int> &a){
+    set<int> st;
+    for(int num:a){
+        st.insert(num);
+    }
+    int length=0;
+    for(int num:a){
+        if(!st.count(num-1)){
+            int curNum=num;
+            int curLength=1;
+            while(st.count(curNum+1)){
+                curNum +=1;
+                curLength +=1;
+            }
+            length=max(length,curLength);
+        }
+    }
+    return length;
+}
+
+
 
 int main(){
     cout<<"Array Size: ";int n;cin>>n;
@@ -29,6 +50,7 @@ int main(){
     }
 
     cout<<"Ans(1): "<<longestSequence(a,n)<<endl;
+    cout<<"Ans(2): "<<LongestLength(a)<<endl;
 
 
 
