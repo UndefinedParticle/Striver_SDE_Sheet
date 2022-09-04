@@ -1,1 +1,2 @@
-minNumber(book,b)
+if(rabinKarp(source+a,b) != -1)
+    //     return cnt+1;
