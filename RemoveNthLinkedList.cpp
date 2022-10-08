@@ -53,14 +53,17 @@ void removeFromEnd(node* &head,int k){
     if(n==k){
         head=head->next;
     }else{
-        node* fast=head->next;
+        node* fast=head;
         node* slow=head;
         //node* temp=head->next;
         for(int i=1;i<=k;i++){
             fast=fast->next;
             //temp=temp->next;
         }
+        int i=0;
         while(fast->next != NULL){
+            i++;
+            cout<<i<<endl;
             fast=fast->next;
             slow=slow->next;
         }
