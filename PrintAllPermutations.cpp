@@ -3,7 +3,7 @@ using namespace std;
 #define loop(i,a,n) for(int i=a;i<n;i++)
 #define rloop(i,n,a) for(int i=n;i>=a;i--)
 #define all(a) a.begin(),a.end()
-
+/*
 vector<vector<int>> printPermutation(vector<int> &a,int fact,int n){
     vector<vector<int>> ans;
     ans.push_back(a);
@@ -54,29 +54,24 @@ vector<vector<int>> recurPermutation(vector<int> &a,vector<int> ds,vector<vector
     return ans;
 
 
-}
+}*/
 
 
 // Time Complexity: O(N! X N)
 // Space Complexity: O(1)
-vector<vector<int>> getPermutation(int ind,vector<int> &a,vector<vector<int>> ans,int n){
+void getPermutation(int ind,vector<int> &a,int n){
     if(ind==n){
-        ans.push_back(a);
+        for(int i=0;i<n;i++){
+            cout<<a[i]<<" ";
+        }cout<<endl;
         return;
     }
 
     for(int i=ind;i<n;i++){
         swap(a[ind],a[i]);
-        getPermutation(ind+1,a,ans,n);
+        getPermutation(ind+1,a,n);
         swap(a[ind],a[i]);
     }
-
-
-
-    return ans;
-
-
-
 }
 
 
@@ -92,20 +87,16 @@ int main(){
     cout<<"Array Size: ";int n;cin>>n;
     cout<<"Array Elements:\n";
     vector<int> a;
-    int fact=1;
+    //int fact=1;
     loop(i,0,n){
-        fact = fact*(i+1);
+        //fact = fact*(i+1);
         int x;cin>>x;
         a.push_back(x);
     }
 
     cout << "All Permutations are:" << endl;
-    vector<vector<int>> ans=printPermutation(a,fact,n);
-    for(auto vect:ans){
-        for(auto it:vect){
-            cout<<it<<" ";
-        }cout<<endl;
-    }
+    getPermutation(0,a,n);
+    
 
 
 
