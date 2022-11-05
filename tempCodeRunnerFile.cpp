@@ -1,2 +1,1 @@
-if(rabinKarp(source+a,b) != -1)
-    //     return cnt+1;
+#define loop(i,a,n) for(int i=a;i<n;i++)
