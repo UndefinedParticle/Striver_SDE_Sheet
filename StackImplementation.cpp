@@ -43,7 +43,7 @@ public:
         if(tp==size) return 1;
         return 0;
     }
-    int size(){
+    int Size(){
         if(tp==-1) return 0;
         return tp+1;
     }
@@ -59,10 +59,10 @@ int main(){
     st.push(3);
     st.push(5);
     st.push(7);
-    cout<<"Size: "<<st.size()<<endl;
+    cout<<"Size: "<<st.Size()<<endl;
     cout<<"Top: "<<st.top()<<endl;
     st.pop();cout<<"Popped.\n";
-    cout<<"Size: "<<st.size()<<endl;
+    cout<<"Size: "<<st.Size()<<endl;
     cout<<"Top: "<<st.top()<<endl;
 
 
