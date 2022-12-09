@@ -16,7 +16,7 @@ int maxWidth(TreeNode *root){
     }
     int ans=0;
     queue<pair<TreeNode*,int>> q;
-    q.push({root,0});
+    q.push({root,1});
     while(!q.empty()){
         int size=q.size();
         int curMin=q.front().second;
@@ -31,11 +31,12 @@ int maxWidth(TreeNode *root){
             if(i==size-1){
                 rightMost=curId;
             }
+            long long l=2*curId;
             if(temp->left){
-                q.push({temp->left,2*curId+1});
+                q.push({temp->left,l});
             }
             if(temp->right){
-                q.push({temp->right,2*curId +2});
+                q.push({temp->right,l +1});
             }
         }
         ans=max(ans,rightMost-leftMost+1);
